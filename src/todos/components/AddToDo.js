@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import * as toDoActions from "../toDoActions";
 import ToDoList from "./ToDoList";
 
-const AddToDo = ({ todos, toDoActions }) => {
+const AddToDo = ({ todos, activeToDos, toDoActions }) => {
 
   const [toDo, setToDo] = useState('');
   
@@ -14,7 +14,9 @@ const AddToDo = ({ todos, toDoActions }) => {
   }
   
   const handleKeyDown = (event) => {
-	  if (event.key === 'Enter') {
+	  if (event.key === 'Enter' && 
+	  !todos.includes(toDo) &&
+	  !activeToDos.includes(toDo)) {
 		  toDoActions.addToDo(toDo);
 		  toDoActions.addActiveToDo(toDo);
 	  }
@@ -46,11 +48,13 @@ const AddToDo = ({ todos, toDoActions }) => {
 }
 
 AddToDo.propTypes = {
-	todos: PropTypes.array
+	todos: PropTypes.array,
+	activeToDos: PropTypes.array
 };
 
 const mapStateToProps = (state) => ({
-  todos: state.root.todos
+  todos: state.toDoStateManager.todos,
+  activeToDos: state.toDoStateManager.activeToDos
 })
 
 const mapDispatchToProps = (dispatch) => ({

@@ -6,7 +6,7 @@ const initialState = {
   activeToDos: []
 }
 
-const root = (state = initialState, action) => {
+const toDoStateManager = (state = initialState, action) => {
 	
 	switch (action.type) {
 		
@@ -87,4 +87,4 @@ const root = (state = initialState, action) => {
 	}
 }
 
-export default combineReducers({ root });
+export default combineReducers({ toDoStateManager });

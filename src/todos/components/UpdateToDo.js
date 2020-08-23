@@ -43,7 +43,7 @@ UpdateToDo.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  todos: state.root.todos
+  todos: state.toDoStateManager.todos
 })
 
 const mapDispatchToProps = (dispatch) => ({

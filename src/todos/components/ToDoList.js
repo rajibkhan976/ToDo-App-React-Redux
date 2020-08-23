@@ -154,9 +154,9 @@ ToDoList.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  todos: state.root.todos,
-  completedToDos: state.root.completedToDos,
-  activeToDos: state.root.activeToDos
+  todos: state.toDoStateManager.todos,
+  completedToDos: state.toDoStateManager.completedToDos,
+  activeToDos: state.toDoStateManager.activeToDos
 })
 
 const mapDispatchToProps = (dispatch) => ({
