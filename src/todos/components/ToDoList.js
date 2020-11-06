@@ -4,7 +4,6 @@ import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
 import * as toDoActions from "../toDoActions";
 import UpdateToDo from "./UpdateToDo";
-import update from 'immutability-helper';
 
 const ToDoList = ({ todos, completedToDos, activeToDos, toDoActions }) => {
 	
